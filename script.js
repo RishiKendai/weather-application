@@ -242,7 +242,7 @@ function UnixToLocalTime(unixTime) {
   let time = new Date(unixTime * 1000);
   time = time.toLocaleTimeString();
   let [hr, min, sec] = time.split(":");
-  hr = hr > 12 ? hr - 12 : hr;
+  hr = hr > 12 ? `0${hr - 12}` : hr;
   return `${hr}:${min}`;
 }
 
