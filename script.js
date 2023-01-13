@@ -200,13 +200,14 @@ function card1(data) {
 }
 
 function card2(res, data) {
+  console.log(res)
   const windSpeed_api = data.wind.speed;
   const windDeg_api = data.wind.deg;
   const wind_dir = getWindDirection(windDeg_api);
   let sunrise_api = res.city.sunrise;
-  sunrise_api = UnixToLocalTime(sunrise_api);
+  let sunrise_time = UnixToLocalTime(sunrise_api);
   let sunset_api = res.city.sunset;
-  sunset_api = UnixToLocalTime(sunset_api);
+  let sunset_time = UnixToLocalTime(sunset_api);
   // Wind Speed
   const windSpeed = document.querySelector("#wind_speed");
   windSpeed.textContent = `${windSpeed_api}mph`;
@@ -215,10 +216,10 @@ function card2(res, data) {
   windDirection.textContent = `${wind_dir}`;
   //  Sunrise
   const sunrise = document.querySelector("#sunrise_time");
-  sunrise.textContent = sunrise_api;
+  sunrise.textContent = sunrise_time;
   // Sunset
   const sunset = document.querySelector("#sunset_time");
-  sunset.textContent = sunset_api;
+  sunset.textContent = sunset_time;
 }
 
 // ! Helper Function
