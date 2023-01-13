@@ -200,7 +200,6 @@ function card1(data) {
 }
 
 function card2(res, data) {
-  console.log(res)
   const windSpeed_api = data.wind.speed;
   const windDeg_api = data.wind.deg;
   const wind_dir = getWindDirection(windDeg_api);
@@ -216,10 +215,10 @@ function card2(res, data) {
   windDirection.textContent = `${wind_dir}`;
   //  Sunrise
   const sunrise = document.querySelector("#sunrise_time");
-  sunrise.textContent = sunrise_time;
+  sunrise.textContent = `${sunrise_time} AM`;
   // Sunset
   const sunset = document.querySelector("#sunset_time");
-  sunset.textContent = sunset_time;
+  sunset.textContent = `${sunset_time} PM`;
 }
 
 // ! Helper Function
@@ -243,8 +242,8 @@ function UnixToLocalTime(unixTime) {
   let time = new Date(unixTime * 1000);
   time = time.toLocaleTimeString();
   const [hr, min, sec] = time.split(":");
-  const am_pm = sec.split(" ")[1];
-  return `${hr}:${min} ${am_pm}`;
+  hr = hr > 12 ? hr - 12 : hr;
+  return `${hr}:${min}`;
 }
 
 function getCountry(code) {
