@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Glory:wght@500&family=Sofia+Sans&display=swap");
+
+:root {
+  --glory-font: "Glory", sans-serif;
+  --sofia-font: "Sofia Sans", sans-serif;
+  --primay: hsl(231 15% 9%);
+  --secondary: hsl(241 59% 62%);
+  --accent: #02ddd6;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3% 6%;
+  background-color: var(--primay);
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: var(--accent);
+}
+
+#logo {
+  margin: 0.7rem;
+  font: 800 1.4rem var(--glory-font);
+  letter-spacing: 1px;
+}
+#logo a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+#search {
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1.1px solid hsl(0 100% 100% / 0.35);
+}
+#search .fa_icon {
+  font-size: 1.1em;
+}
+#search .fa-location-dot {
+  font-size: 1.3em;
+  color: var(--secondary);
+}
+.buttons {
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+#search .fa-arrow-right-long {
+  color: hsl(0 100% 100% / 0.25);
+  transition: all 350ms;
+}
+#search .fa-arrow-right-long:hover {
+  color: hsl(0 100% 100%);
+}
+#search .fa-arrow-right-long:active {
+  transform: translateX(4px);
+}
+
+#search .fa-xmark {
+  display: none;
+}
+#search input {
+  width: 100%;
+  outline: none;
+  border: none;
+  font: 400 1.3em var(--sofia-font);
+  padding: 6px 10px 3px 10px;
+  background: none;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+#current_weather {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 2rem;
+}
+#left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#left #place {
+  font: 400 1.7em var(--glory-font);
+  text-transform: capitalize;
+  color: hsl(0 100% 100% / 0.74);
+  margin-bottom: 0.5rem;
+}
+#place .fa-location-dot {
+  font-size: 1.2em;
+  color: hsl(0 100% 100% / 0.35);
+}
+#place span {
+  color: var(--accent);
+}
+#left #day {
+  font: 400 2.1em var(--glory-font);
+  text-transform: capitalize;
+  color: hsl(0 100% 100% / 0.78);
+}
+#temp {
+  display: flex;
+}
+
+#temp img {
+  height: 120px;
+  width: 120px;
+  align-self: flex-end;
+}
+#temp_wrapper {
+  align-self: flex-start;
+}
+#temp_wrapper p:first-child {
+  font: 700 4em var(--glory-font);
+  color: white;
+}
+#temp_wrapper p:last-child {
+  font: 500 1.4em var(--sofia-font);
+  color: hsl(0 100% 100% / 0.56);
+}
+
+#right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 14px 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 334px;
+  min-width: 300px;
+  gap: 1rem;
+}
+#card1 {
+  flex: 1;
+  background: linear-gradient(213deg, hsl(280 67% 55%), hsl(250 70% 60%));
+}
+#card2 {
+  flex: 1;
+  background: linear-gradient(163deg, hsl(222 43% 51%), hsl(220 50% 19%));
+}
+
+.card span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card span div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.card span div i {
+  font-size: 1.5em;
+}
+.card span div p {
+  font: 600 1.1em var(--sofia-font);
+  color: white;
+}
+.card span h5 {
+  color: hsl(0 100% 100% / 0.66);
+  font: 400 1em var(--sofia-font);
+  text-transform: capitalize;
+}
+
+#humidity i {
+  background: linear-gradient(
+    to bottom right,
+    hsl(200 86% 54%),
+    hsl(200 95% 83%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#cloud i {
+  background: linear-gradient(313deg, hsl(200 86% 84%), hsl(200 95% 43%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#tempMin i {
+  background: linear-gradient(to top, hsl(200 86% 64%), hsl(200 95% 93%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#tempMax i {
+  background: linear-gradient(to bottom, hsl(0 86% 64%), hsl(0 95% 93%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.wind i {
+  background: linear-gradient(15deg, hsl(204 24% 68%), hsl(215 20% 90%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#sunrise i {
+  background: linear-gradient(115deg, hsl(13 90% 55%), hsl(13 67% 58%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#sunset i {
+  background: linear-gradient(
+    15deg,
+    hsl(20 34% 27%),
+    hsl(25 55% 40%),
+    hsl(15 70% 56%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#forecast_heading {
+  font: 600 1.4em var(--glory-font);
+  color: var(--secondary);
+  letter-spacing: 1.2px;
+  margin-bottom: 1rem;
+}
+
+#forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 120px);
+  grid-template-rows: repeat(auto-fit, 110px);
+  gap: 1rem;
+}
+.square {
+  background-color: hsl(0 100% 100% / 0.09);
+  border: 1px solid hsl(0 100% 100% / 0.18);
+  border-radius: 6px;
+  box-shadow: 0 10px 18px hsl(0 0% 0% / 0.33);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 8px;
+}
+.square .temp {
+  font: 600 1.2em var(--glory-font);
+  color: white;
+}
+.square img {
+  align-self: center;
+}
+.square .day {
+  align-self: center;
+  font: 600 1.2em var(--sofia-font);
+  color: hsl(0 100% 100% / 0.66);
+}
+
+#error {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(122deg, #eb9a9a, #ffa6ac);
+  border-radius: 6px;
+  min-width: 90%;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 350ms ease-in, top 500ms ease-in-out;
+}
+#error.show {
+  opacity: 1;
+  top: 0.75rem;
+}
+#error p {
+  padding: 9px 12px;
+  font: 500 1.1em var(--sofia-font);
+  color: hsl(0 60% 45%);
+}
+#error #progress {
+  background-color: red;
+  height: 3px;
+  width: 100%;
+  transition: width 350ms linear;
+}
+
+/* ! Large Screen */
+@media screen and (min-width: 768px) {
+  #search {
+    width: 45%;
+  }
+
+  #current_weather {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.7rem;
+  }
+  #left {
+    flex: 1 1 35%;
+    align-items: center;
+  }
+  #right {
+    flex: 1 1 65%;
+  }
+  #forecast {
+    column-gap: 2rem;
+  }
+  #error {
+    min-width: 46%;
+  }
+}

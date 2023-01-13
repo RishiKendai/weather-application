@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weatherly</title>
+    <!-- ! Font awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- ! Custom CSS Link -->
+    <link rel="stylesheet" href="./styles.css" />
+    <!--  ! Custom JS Link -->
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div id="error">
+      <p></p>
+      <div id="progress"></div>
+    </div>
+    <!-- Logo -->
+    <div id="logo">
+      <a href="#">Weatherly.io</a>
+    </div>
+    <!-- Search Bar -->
+    <div id="search">
+      <i class="fa_icon fa-sharp fa-solid fa-location-dot"></i>
+      <input type="text" id="search_input" />
+      <div class="buttons" id="btn_arrow">
+        <i class="fa_icon fa-solid fa-arrow-right-long"></i>
+      </div>
+    </div>
+
+    <main>
+      <!--  ! Current Weather -->
+      <div id="current_weather">
+        <div id="left">
+          <div id="temp">
+            <img id="temp_icon" src="" alt="temperature" />
+            <div id="temp_wrapper">
+              <p id="temp_degree"></p>
+              <p id="temp_desc"></p>
+            </div>
+          </div>
+          <p id="place"></p>
+          <p id="day"></p>
+        </div>
+        <div id="right">
+          <div class="card" id="card1">
+            <!-- Humidity  -->
+            <span id="humidity">
+              <div class="humidity_details">
+                <i class="fa-solid fa-droplet"></i>
+                <p id="humidity_degree"></p>
+              </div>
+              <h5>humidity</h5>
+            </span>
+            <!-- Cloud -->
+            <span id="cloud">
+              <div class="cloud_details">
+                <i class="fa-solid fa-cloud"></i>
+                <p id="cloud_degree"></p>
+              </div>
+              <h5>cloud</h5>
+            </span>
+            <!-- Temp Min -->
+            <span id="tempMin">
+              <div class="tempMin__details">
+                <i class="fa-solid fa-temperature-arrow-down"></i>
+                <p id="tempMin_degree"></p>
+              </div>
+              <h5>min</h5>
+            </span>
+            <!-- Temp Max -->
+            <span id="tempMax">
+              <div class="tempMax__details">
+                <i class="fa-solid fa-temperature-arrow-up"></i>
+                <p id="tempMax_degree"></p>
+              </div>
+              <h5>max</h5>
+            </span>
+          </div>
+          <div class="card" id="card2">
+            <!-- Wind Speed -->
+            <span class="wind">
+              <div class="wind__details">
+                <i class="fa-solid fa-wind"></i>
+                <p id="wind_speed"></p>
+              </div>
+              <h5>wind speed</h5>
+            </span>
+            <!-- Wind Direction -->
+            <span class="wind">
+              <div class="wind__details">
+                <i class="fa-solid fa-wind"></i>
+                <p id="wind_direction"></p>
+              </div>
+              <h5>wind direction</h5>
+            </span>
+            <!-- Sunrise -->
+            <span id="sunrise">
+              <div class="sunrise__details">
+                <i class="fa-sharp fa-solid fa-sun"></i>
+                <p id="sunrise_time"></p>
+              </div>
+              <h5>sunrise</h5>
+            </span>
+            <!-- Sunset -->
+            <span id="sunset">
+              <div class="sunset__details">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <p id="sunset_time"></p>
+              </div>
+              <h5>sunset</h5>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- ! Forecast -->
+      <p id="forecast_heading">Forecast</p>
+      <div id="forecast"></div>
+    </main>
+  </body>
+</html>
