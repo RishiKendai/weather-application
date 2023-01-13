@@ -12,7 +12,9 @@ const error_progress = document.querySelector("#error #progress");
 // Get Weather for User's Current Location on page load
 window.addEventListener("load", startPage);
 btn.addEventListener("click", handleBtnClick);
-
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") handleBtnClick();
+});
 // ! FUNCTIONS
 function startPage() {
   if (navigator.geolocation) {
