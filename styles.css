@@ -34,10 +34,12 @@ body::-webkit-scrollbar-thumb {
   margin: 0.7rem;
   font: 800 1.4rem var(--glory-font);
   letter-spacing: 1px;
+  z-index: 999;
 }
 #logo a {
   text-decoration: none;
   color: var(--accent);
+  z-index: 4;
 }
 
 #search {
@@ -46,6 +48,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   width: 100%;
   border-bottom: 1.1px solid hsl(0 100% 100% / 0.35);
+  z-index: 3;
 }
 #search .fa_icon {
   font-size: 1.1em;
@@ -89,6 +92,9 @@ body::-webkit-scrollbar-thumb {
 main {
   display: flex;
   flex-direction: column;
+}
+main.active{
+  display: none;
 }
 #current_weather {
   display: flex;
@@ -247,12 +253,14 @@ main {
   color: var(--secondary);
   letter-spacing: 1.2px;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 #forecast {
   display: grid;
   grid-template-columns: repeat(auto-fit, 120px);
   grid-template-rows: repeat(auto-fit, 110px);
+  justify-content: center;
   gap: 1rem;
 }
 .square {
@@ -307,6 +315,7 @@ main {
   transition: width 350ms linear;
 }
 
+
 /* ! Large Screen */
 @media screen and (min-width: 768px) {
   #search {
@@ -325,8 +334,12 @@ main {
   #right {
     flex: 1 1 65%;
   }
+  #forecast_heading {
+    text-align: left;
+  }
   #forecast {
     column-gap: 2rem;
+    justify-content: flex-start;
   }
   #error {
     min-width: 46%;

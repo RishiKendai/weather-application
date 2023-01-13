@@ -15,15 +15,23 @@ btn.addEventListener("click", handleBtnClick);
 
 // ! FUNCTIONS
 function startPage() {
-  // Get Users Current Location (lat and lon)
-  if (navigator.geolocation !== null) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      // Get Weather
-      getWeatherLatLon(lat, lon);
-    });
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        document.querySelector("main").classList.remove("active");
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        // Get Weather
+        getWeatherLatLon(lat, lon);
+      },
+      (err) => {
+        if (err.code === 1) {
+          document.querySelector("main").classList.add("active");
+        }
+      }
+    );
   } else {
+    document.querySelector("main").classList.add("active");
   }
 }
 
@@ -49,7 +57,7 @@ async function handleBtnClick() {
     startPage();
     return;
   }
-
+  document.querySelector("main").classList.remove("active");
   handleAPICall(res);
 }
 
@@ -211,8 +219,7 @@ function card2(res, data) {
   sunset.textContent = sunset_api;
 }
 
-
-// ! Helper Function 
+// ! Helper Function
 
 function createCustomElement(ele, classArr) {
   const element = document.createElement(ele);
