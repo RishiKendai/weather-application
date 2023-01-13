@@ -241,7 +241,7 @@ function getCurrentDate() {
 function UnixToLocalTime(unixTime) {
   let time = new Date(unixTime * 1000);
   time = time.toLocaleTimeString();
-  const [hr, min, sec] = time.split(":");
+  let [hr, min, sec] = time.split(":");
   hr = hr > 12 ? hr - 12 : hr;
   return `${hr}:${min}`;
 }
